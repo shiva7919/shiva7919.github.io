@@ -405,11 +405,11 @@
             
             <!-- Skills cloud -->
             <div class="skills-cloud fade-up" id="skillsCloud">
-                <!-- Icons + labels added via JS to keep HTML clean but we can hardcode too -->
+                <!-- Icons + labels added via JS -->
             </div>
             
             <div class="commitment-text fade-up">
-                “I am passionate about automating workflows, ensuring high availability, and delivering secure, scalable cloud solutions. I thrive in collaborative environments and am committed to continuous learning and operational excellence.”
+                "I am passionate about automating workflows, ensuring high availability, and delivering secure, scalable cloud solutions. I thrive in collaborative environments and am committed to continuous learning and operational excellence."
             </div>
         </section>
 
@@ -427,14 +427,14 @@
     </div>
 
     <footer class="footer">
-        <div class="container">© 2026 shiva sai kumar sarla</div>
+        <div class="container">© 2026 shiva sarla</div>
     </footer>
 
     <script>
         (function(){
             "use strict";
 
-            // ---------- DATA ----------
+            // ---------- UPDATED DATA WITH YOUR INFORMATION ----------
             const skills = [
                 { icon: "fab fa-jenkins", name: "Jenkins" },
                 { icon: "fab fa-github", name: "GitHub Actions" },
@@ -452,18 +452,36 @@
                 { icon: "fas fa-terminal", name: "Bash" }
             ];
 
+            // Updated certifications with your links
             const certifications = [
-                { name: "Linux Certification", icon: "fab fa-linux", link: "https://drive.google.com/file/d/18h2AuLiHQPCPtVBCwGWIyg4WcEBKJPCx/view?usp=drive_link" },
-                { name: "AWS Cloud Practitioner Essentials", icon: "fab fa-aws", link: "https://drive.google.com/file/d/1-I-uiMQSyHCsh_hopC5WkE186aKndUX5/view?usp=drive_link" },
-                { name: "AWS Solution Architect Fundamentals", icon: "fas fa-archway", link: "https://drive.google.com/file/d/1tIo-mZfgp3wuVesdRavcK0VOfh-xlb5n/view?usp=drive_link" },
-                { name: "AWS Fundamentals of AI", icon: "fas fa-robot", link: "https://drive.google.com/file/d/1mXvpffmRpdOvKm6nQTqo3HoKNzqFhyPV/view?usp=sharing" }
+                { 
+                    name: "Linux Certification", 
+                    icon: "fab fa-linux", 
+                    link: "https://drive.google.com/file/d/1T0-Mjmj7vezyarur4K0UBMzP03OX0Igh/view?usp=drive_link" 
+                },
+                { 
+                    name: "AWS Cloud Practitioner Essentials", 
+                    icon: "fab fa-aws", 
+                    link: "https://drive.google.com/file/d/1UjL118ZByUJl2VTet4yTInCzN00DBALB/view?usp=drive_link" 
+                },
+                { 
+                    name: "AWS Solution Architect", 
+                    icon: "fas fa-archway", 
+                    link: "https://drive.google.com/file/d/1S3ATNvV659_a6oaz2bPpih9njdWTjg9G/view?usp=drive_link" 
+                },
+                { 
+                    name: "Agile Methodology Virtual Experience", 
+                    icon: "fas fa-users-cog", 
+                    link: "https://drive.google.com/file/d/1fKFQAWL2CAnAr2RdAjb0_7Itp8OEZWP0/view?usp=drive_link" 
+                }
             ];
 
+            // Updated contact information with new resume link
             const contacts = [
-                { name: "Gmail", icon: "fas fa-envelope", link: "mailto:gnmskishan@gmail.com" },
-                { name: "LinkedIn", icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/gollamudi-kishan2498/", target: "_blank" },
-                { name: "GitHub", icon: "fab fa-github", link: "https://github.com/kishangollamudi", target: "_blank" },
-                { name: "Resume", icon: "fas fa-file-alt", link: "https://drive.google.com/file/d/1tRBoC8D4m6kedu0ICrV4M4RUdgHZk9hJ/view?usp=drive_link", target: "_blank" }
+                { name: "Gmail", icon: "fas fa-envelope", link: "mailto:shivasarla2398@gmail.com" },
+                { name: "LinkedIn", icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/shivasarla/", target: "_blank" },
+                { name: "GitHub", icon: "fab fa-github", link: "https://github.com/shiva7919", target: "_blank" },
+                { name: "Resume", icon: "fas fa-file-alt", link: "https://drive.google.com/file/d/1xvCOJfUVgnAAPZH8ZBsY1xcyDld2_u_9/view?usp=drive_link", target: "_blank" }
             ];
 
             // ---------- RENDER SKILLS ----------
@@ -503,7 +521,6 @@
                 
                 // ripple/bounce on click
                 btn.addEventListener('click', function(e) {
-                    // prevent default not needed, just add effect
                     this.classList.add('btn-click-effect');
                     setTimeout(() => this.classList.remove('btn-click-effect'), 200);
                 });
@@ -516,7 +533,6 @@
             const text = "DevOps / Cloud Engineer";
             let index = 0;
             let isDeleting = false;
-            let wait = false;
 
             function typeEffect() {
                 if (!isDeleting && index <= text.length) {
@@ -543,9 +559,8 @@
             }
             typeEffect();
 
-            // ---------- SCROLL EFFECTS: navbar opacity, active link, fade-up ----------
+            // ---------- SCROLL EFFECTS ----------
             const navbar = document.getElementById('navbar');
-            const sections = ['about', 'certifications', 'contact'];
             const navLinks = document.querySelectorAll('.nav-link');
             
             // fade-up observer
@@ -559,7 +574,7 @@
             }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
             fadeElements.forEach(el => observer.observe(el));
 
-            // section observer for active link + navbar scroll style
+            // section observer for active link
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     const id = entry.target.getAttribute('id');
@@ -574,7 +589,7 @@
 
             document.querySelectorAll('section[id]').forEach(sec => sectionObserver.observe(sec));
             
-            // Navbar background on scroll (past hero)
+            // Navbar background on scroll
             const heroSection = document.getElementById('hero');
             function handleNavbarScroll() {
                 const heroBottom = heroSection.getBoundingClientRect().bottom;
@@ -585,10 +600,9 @@
                 }
             }
             window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-            handleNavbarScroll(); // initial
+            handleNavbarScroll();
 
-            // Smooth scroll for nav links (already via CSS scroll-behavior)
-            // but also ensure they dont jump
+            // Smooth scroll for nav links
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -600,34 +614,16 @@
                 });
             });
 
-            // Additional: add fade-up to any certification cards and skills already have it.
-            // ensure cards fade up too: we wrapped them in fade-up div
-            // Also manually trigger visible if already in view
+            // Trigger visible for elements already in view
             setTimeout(() => {
                 fadeElements.forEach(el => {
                     const rect = el.getBoundingClientRect();
                     if (rect.top < window.innerHeight-80) el.classList.add('visible');
                 });
             }, 200);
-
-            // Ripple/bounce effect already added per button.
-            // Micro-animation: background floating already present.
-
-            // Extra polish: adjust active link on manual scroll
-            window.addEventListener('scroll', () => {
-                // navbar opacity is handled; active link by observer.
-            });
-
-            // small correction: the resume link uses drive link as per spec.
-            // And the contact buttons include Gmail, LinkedIn, GitHub, Resume with correct links.
-
-            // The page also has "shiva sarla" large heading, with "shiva sai kumar sarla" in title.
-            // Footer says © 2026 shiva sai kumar sarla.
-            // Also added a subtle improvement: skills cloud icon mapping correct.
         })();
     </script>
-    <!-- ensure that if any images fail, it's fine. All icons from font awesome -->
-    <!-- Additional style for better ripple alignment -->
+    
     <style>
         /* ensure cursor stays visible */
         .typed-cursor { background: #0077b6; width: 3px; margin-left: 5px; }
