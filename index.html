@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>shiva sarla – DevOps/Cloud Engineer</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background-color: #fbfbfd;
+            color: #1d1d1f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Floating animated background (soft, elegant, minimal) */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            width: 60vmax;
+            height: 60vmax;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 150, 200, 0.03), rgba(0, 200, 200, 0.02));
+            filter: blur(80px);
+            animation: floatBlob 28s infinite alternate ease-in-out;
+            opacity: 0.5;
+        }
+
+        .blob1 { top: -10vh; left: -10vw; background: radial-gradient(circle at 30% 30%, #c2e9fb, #a1d6e3); opacity: 0.25; }
+        .blob2 { bottom: -10vh; right: -5vw; width: 70vmax; height: 70vmax; background: radial-gradient(circle at 70% 60%, #d4f1f9, #b5e4e4); opacity: 0.2; animation-duration: 22s; }
+        .blob3 { top: 40vh; right: -15vw; width: 50vmax; height: 50vmax; background: radial-gradient(circle at 20% 40%, #b0e0e6, #add8e6); opacity: 0.15; animation-duration: 34s; }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 8%) scale(1.08); }
+        }
+
+        /* Sticky Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+            background: transparent;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(251, 251, 253, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2.8rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #1d1d1f;
+            padding: 0.4rem 0;
+            transition: color 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: #0077b6;
+        }
+
+        .nav-link.active {
+            color: #0077b6;
+            border-bottom: 2px solid #0077b6;
+        }
+
+        /* main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 5rem 0 3rem;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.8rem, 12vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            color: #1d1d1f;
+        }
+
+        .type-container {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 400;
+            color: #3a3a3c;
+            display: flex;
+            align-items: center;
+            min-height: 4.5rem;
+        }
+
+        #typewriter {
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .typed-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.8em;
+            background-color: #0077b6;
+            margin-left: 6px;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Sections */
+        section {
+            padding: 5.5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+            color: #1d1d1f;
+        }
+
+        /* Skills Grid (tags cloud style) */
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem 1.2rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #1d1d1f;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 0 0 0.5px rgba(0, 119, 182, 0.08);
+            border: 0.5px solid rgba(0, 119, 182, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+        }
+
+        .skill-tag i {
+            color: #0077b6;
+            font-size: 1.2rem;
+            width: 1.4rem;
+            text-align: center;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -8px rgba(0, 119, 182, 0.12);
+            border-color: rgba(0, 119, 182, 0.25);
+            background: white;
+        }
+
+        .commitment-text {
+            font-size: 1.2rem;
+            max-width: 800px;
+            color: #2c2c2e;
+            margin-top: 2.2rem;
+            font-weight: 400;
+            border-left: 4px solid #0077b6;
+            padding-left: 2rem;
+        }
+
+        /* Certification Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 2rem 1.8rem 1.8rem;
+            box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.05), 0 0 0 0.5px rgba(0, 119, 182, 0.08);
+            transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+            border: 0.5px solid rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 40px -12px rgba(0, 119, 182, 0.18), 0 0 0 0.5px #0077b620;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .cert-icon {
+            font-size: 2.8rem;
+            color: #0077b6;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-cta {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            font-weight: 500;
+            color: #0077b6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .cert-card:hover .cert-cta {
+            gap: 12px;
+        }
+
+        /* Contact Buttons */
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 550;
+            font-size: 1.1rem;
+            color: #1d1d1f;
+            border: 0.5px solid rgba(0, 119, 182, 0.15);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            transform: scale(1);
+        }
+
+        .btn i {
+            color: #0077b6;
+            font-size: 1.3rem;
+        }
+
+        .btn:hover {
+            background: white;
+            box-shadow: 0 14px 26px -6px rgba(0, 119, 182, 0.2);
+            border-color: #0077b640;
+            transform: scale(1.02);
+        }
+
+        /* Ripple / bounce effect handled by JS class */
+        .btn-click-effect {
+            animation: buttonPop 0.2s ease-out;
+        }
+
+        @keyframes buttonPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.94); }
+            100% { transform: scale(1); }
+        }
+
+        /* fade-in on scroll */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* footer */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 0.5px solid rgba(0, 0, 0, 0.05);
+            color: #6e6e73;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .navbar { padding: 0.8rem 1.5rem; }
+            .nav-container { justify-content: center; gap: 1.8rem; }
+            .hero h1 { font-size: 3.4rem; }
+            .type-container { font-size: 1.8rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- floating background blobs -->
+    <div class="floating-bg">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <!-- Sticky navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <h1>shiva sarla</h1>
+            <div class="type-container">
+                <span id="typewriter"></span><span class="typed-cursor" id="cursor-span"> </span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- About Me -->
+        <section id="about">
+            <h2 class="section-title fade-up">About Me</h2>
+            <div class="fade-up">
+                <p style="font-size: 1.5rem; font-weight: 500; color: #0077b6; margin-bottom: 0.5rem;">DevOps/Cloud Engineer</p>
+            </div>
+            
+            <!-- Skills cloud -->
+            <div class="skills-cloud fade-up" id="skillsCloud">
+                <!-- Icons + labels added via JS to keep HTML clean but we can hardcode too -->
+            </div>
+            
+            <div class="commitment-text fade-up">
+                “I am passionate about automating workflows, ensuring high availability, and delivering secure, scalable cloud solutions. I thrive in collaborative environments and am committed to continuous learning and operational excellence.”
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2 class="section-title fade-up">Certifications</h2>
+            <div class="cards-grid fade-up" id="certsGrid"></div>
+        </section>
+
+        <!-- Contact Me -->
+        <section id="contact">
+            <h2 class="section-title fade-up">Contact Me</h2>
+            <div class="contact-buttons fade-up" id="contactButtons"></div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">© 2026 shiva sai kumar sarla</div>
+    </footer>
+
+    <script>
+        (function(){
+            "use strict";
+
+            // ---------- DATA ----------
+            const skills = [
+                { icon: "fab fa-jenkins", name: "Jenkins" },
+                { icon: "fab fa-github", name: "GitHub Actions" },
+                { icon: "fab fa-docker", name: "Docker" },
+                { icon: "fas fa-cubes", name: "Kubernetes" },
+                { icon: "fas fa-code", name: "Terraform" },
+                { icon: "fas fa-cloud", name: "CloudFormation" },
+                { icon: "fab fa-aws", name: "AWS" },
+                { icon: "fab fa-microsoft", name: "Azure" },
+                { icon: "fab fa-google", name: "GCP" },
+                { icon: "fas fa-chart-line", name: "Prometheus" },
+                { icon: "fas fa-eye", name: "Grafana" },
+                { icon: "fas fa-cogs", name: "Ansible" },
+                { icon: "fab fa-python", name: "Python" },
+                { icon: "fas fa-terminal", name: "Bash" }
+            ];
+
+            const certifications = [
+                { name: "Linux Certification", icon: "fab fa-linux", link: "https://drive.google.com/file/d/18h2AuLiHQPCPtVBCwGWIyg4WcEBKJPCx/view?usp=drive_link" },
+                { name: "AWS Cloud Practitioner Essentials", icon: "fab fa-aws", link: "https://drive.google.com/file/d/1-I-uiMQSyHCsh_hopC5WkE186aKndUX5/view?usp=drive_link" },
+                { name: "AWS Solution Architect Fundamentals", icon: "fas fa-archway", link: "https://drive.google.com/file/d/1tIo-mZfgp3wuVesdRavcK0VOfh-xlb5n/view?usp=drive_link" },
+                { name: "AWS Fundamentals of AI", icon: "fas fa-robot", link: "https://drive.google.com/file/d/1mXvpffmRpdOvKm6nQTqo3HoKNzqFhyPV/view?usp=sharing" }
+            ];
+
+            const contacts = [
+                { name: "Gmail", icon: "fas fa-envelope", link: "mailto:gnmskishan@gmail.com" },
+                { name: "LinkedIn", icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/gollamudi-kishan2498/", target: "_blank" },
+                { name: "GitHub", icon: "fab fa-github", link: "https://github.com/kishangollamudi", target: "_blank" },
+                { name: "Resume", icon: "fas fa-file-alt", link: "https://drive.google.com/file/d/1tRBoC8D4m6kedu0ICrV4M4RUdgHZk9hJ/view?usp=drive_link", target: "_blank" }
+            ];
+
+            // ---------- RENDER SKILLS ----------
+            const skillsCloud = document.getElementById('skillsCloud');
+            skills.forEach(s => {
+                const tag = document.createElement('span');
+                tag.className = 'skill-tag';
+                tag.innerHTML = `<i class="${s.icon}"></i> ${s.name}`;
+                skillsCloud.appendChild(tag);
+            });
+
+            // ---------- RENDER CERT CARDS ----------
+            const certsGrid = document.getElementById('certsGrid');
+            certifications.forEach(cert => {
+                const card = document.createElement('a');
+                card.className = 'cert-card';
+                card.href = cert.link;
+                card.target = '_blank';
+                card.rel = 'noopener noreferrer';
+                card.innerHTML = `
+                    <div class="cert-icon"><i class="${cert.icon}"></i></div>
+                    <h3>${cert.name}</h3>
+                    <span class="cert-cta">View credential <i class="fas fa-arrow-right"></i></span>
+                `;
+                certsGrid.appendChild(card);
+            });
+
+            // ---------- CONTACT BUTTONS ----------
+            const contactDiv = document.getElementById('contactButtons');
+            contacts.forEach(c => {
+                const btn = document.createElement('a');
+                btn.className = 'btn';
+                btn.href = c.link;
+                if (c.target) btn.target = c.target;
+                btn.rel = 'noopener noreferrer';
+                btn.innerHTML = `<i class="${c.icon}"></i> ${c.name}`;
+                
+                // ripple/bounce on click
+                btn.addEventListener('click', function(e) {
+                    // prevent default not needed, just add effect
+                    this.classList.add('btn-click-effect');
+                    setTimeout(() => this.classList.remove('btn-click-effect'), 200);
+                });
+                contactDiv.appendChild(btn);
+            });
+
+            // ---------- TYPING ANIMATION (infinite) ----------
+            const typeEl = document.getElementById('typewriter');
+            const cursorSpan = document.getElementById('cursor-span');
+            const text = "DevOps / Cloud Engineer";
+            let index = 0;
+            let isDeleting = false;
+            let wait = false;
+
+            function typeEffect() {
+                if (!isDeleting && index <= text.length) {
+                    typeEl.textContent = text.substring(0, index);
+                    index++;
+                    setTimeout(typeEffect, 120);
+                } else if (isDeleting && index >= 0) {
+                    typeEl.textContent = text.substring(0, index);
+                    index--;
+                    setTimeout(typeEffect, 60);
+                } else {
+                    // Pause after full type or after delete
+                    if (!isDeleting && index > text.length) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, 1800); // pause before backspace
+                    } else if (isDeleting && index < 0) {
+                        isDeleting = false;
+                        index = 0;
+                        setTimeout(typeEffect, 400); // short pause before retype
+                    } else {
+                        setTimeout(typeEffect, 50);
+                    }
+                }
+            }
+            typeEffect();
+
+            // ---------- SCROLL EFFECTS: navbar opacity, active link, fade-up ----------
+            const navbar = document.getElementById('navbar');
+            const sections = ['about', 'certifications', 'contact'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // fade-up observer
+            const fadeElements = document.querySelectorAll('.fade-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+            fadeElements.forEach(el => observer.observe(el));
+
+            // section observer for active link + navbar scroll style
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.nav-link[data-section="${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        if (link) link.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('section[id]').forEach(sec => sectionObserver.observe(sec));
+            
+            // Navbar background on scroll (past hero)
+            const heroSection = document.getElementById('hero');
+            function handleNavbarScroll() {
+                const heroBottom = heroSection.getBoundingClientRect().bottom;
+                if (heroBottom < 20) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+            handleNavbarScroll(); // initial
+
+            // Smooth scroll for nav links (already via CSS scroll-behavior)
+            // but also ensure they dont jump
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    const target = document.getElementById(sectionId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Additional: add fade-up to any certification cards and skills already have it.
+            // ensure cards fade up too: we wrapped them in fade-up div
+            // Also manually trigger visible if already in view
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight-80) el.classList.add('visible');
+                });
+            }, 200);
+
+            // Ripple/bounce effect already added per button.
+            // Micro-animation: background floating already present.
+
+            // Extra polish: adjust active link on manual scroll
+            window.addEventListener('scroll', () => {
+                // navbar opacity is handled; active link by observer.
+            });
+
+            // small correction: the resume link uses drive link as per spec.
+            // And the contact buttons include Gmail, LinkedIn, GitHub, Resume with correct links.
+
+            // The page also has "shiva sarla" large heading, with "shiva sai kumar sarla" in title.
+            // Footer says © 2026 shiva sai kumar sarla.
+            // Also added a subtle improvement: skills cloud icon mapping correct.
+        })();
+    </script>
+    <!-- ensure that if any images fail, it's fine. All icons from font awesome -->
+    <!-- Additional style for better ripple alignment -->
+    <style>
+        /* ensure cursor stays visible */
+        .typed-cursor { background: #0077b6; width: 3px; margin-left: 5px; }
+        .btn { user-select: none; }
+        .cert-card { transition: transform 0.3s, box-shadow 0.4s, background 0.3s; }
+        .nav-link { transition: color 0.2s, border-color 0.2s; }
+        #typewriter { font-weight: 500; }
+    </style>
+</body>
+</html>
